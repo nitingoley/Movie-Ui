@@ -1,7 +1,6 @@
 import { apiSlice } from "./apiSlice";
 import { USERS_URL } from "../constant";
 
-
 export const userApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         login: builder.mutation({
@@ -9,12 +8,12 @@ export const userApiSlice = apiSlice.injectEndpoints({
                 url: `${USERS_URL}/auth`,
                 method: "POST",
                 body: data,
-                credentials: "include", // ✅ Required for cookies
+                credentials: "include", 
             }),
         }),
         register: builder.mutation({
             query: (data) => ({
-                url: `${USERS_URL}`,
+                url: USERS_URL,
                 method: "POST",
                 body: data,
                 credentials: "include",
@@ -44,4 +43,10 @@ export const userApiSlice = apiSlice.injectEndpoints({
     }),
 });
 
-export const {useLoginMutation , useRegisterMutation , useLogoutMutation , useProfileMutation , useGetUsersQuery}  = userApiSlice;
+export const {
+    useLoginMutation,
+    useRegisterMutation,
+    useLogoutMutation,
+    useProfileMutation,
+    useGetUsersQuery,
+} = userApiSlice;
